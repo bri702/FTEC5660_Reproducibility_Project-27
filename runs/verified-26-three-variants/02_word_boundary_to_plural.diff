@@ -1,0 +1,39 @@
+--- a/upstream/server.py
++++ b/upstream/server.py
+@@ -1456,6 +1456,27 @@
+     }
+ 
+ 
++def _whole_word_with_plural(keyword: str, task: str) -> bool:
++    def whole_word(candidate: str) -> bool:
++        return bool(re.search(r"(?<!\w)" + re.escape(candidate) + r"(?!\w)", task))
++
++    if whole_word(keyword):
++        return True
++
++    # Inflect the last word of a keyword phrase. Keep short terms such as AI exact.
++    last_word = re.search(r"(?<![a-z])[a-z]{3,}$", keyword)
++    if last_word is None:
++        return False
++    word = last_word.group()
++    if word.endswith(("s", "x", "z", "ch", "sh")):
++        plural = word + "es"
++    elif word.endswith("y") and word[-2] not in "aeiou":
++        plural = word[:-1] + "ies"
++    else:
++        plural = word + "s"
++    return whole_word(keyword[:last_word.start()] + plural)
++
++
+ @mcp.tool()
+ def find_relevant_context(task_description: str) -> dict:
+     """
+@@ -1476,7 +1497,7 @@
+         matched_keywords = []
+ 
+         for keyword in info["keywords"]:
+-            if re.search(r"(?<!\w)" + re.escape(keyword) + r"(?!\w)", task_lower):
++            if _whole_word_with_plural(keyword, task_lower):
+                 score += 1
+                 matched_keywords.append(keyword)
+ 

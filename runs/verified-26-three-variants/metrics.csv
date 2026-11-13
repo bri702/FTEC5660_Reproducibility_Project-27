@@ -1,0 +1,4 @@
+variant,positive_cases,top1_hits,top1_rate,top3_hits,top3_rate,negative_cases,negative_cases_with_recommendations,negative_false_recommendation_rate,irrelevant_top3_positive_total,irrelevant_top3_total
+original,26,21,0.807692,25,0.961538,0,0,,42,42
+word_boundary,26,18,0.692308,21,0.807692,0,0,,20,20
+whole_word_plural,26,23,0.884615,26,1.0,0,0,,23,23

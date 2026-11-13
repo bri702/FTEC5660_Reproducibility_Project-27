@@ -1,0 +1,11 @@
+--- a/upstream/server.py
++++ b/upstream/server.py
+@@ -1476,7 +1476,7 @@
+         matched_keywords = []
+ 
+         for keyword in info["keywords"]:
+-            if keyword in task_lower:
++            if re.search(r"(?<!\w)" + re.escape(keyword) + r"(?!\w)", task_lower):
+                 score += 1
+                 matched_keywords.append(keyword)
+ 
