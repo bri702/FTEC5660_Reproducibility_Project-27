@@ -1,0 +1,181 @@
+{
+  "documented_examples": [
+    {
+      "id": "doc-camera-offset",
+      "query": "fix camera offset",
+      "expected_subsystems": ["rendering"],
+      "source": "https://github.com/arisvas4/codified-context-infrastructure/blob/v1.0.0/mcp-server/README.md#key-data-structures",
+      "notes": "The README uses this query to illustrate retrieval. It identifies rendering as the subsystem for sprite and camera work. The server also indexes camera under aiming."
+    }
+  ],
+  "evaluation": [
+    {
+      "id": "network-serialization",
+      "query": "Repair multiplayer snapshot serialization.",
+      "expected_subsystems": ["networking"],
+      "notes": "Serializing snapshots is part of multiplayer networking. The word repair also contains the unrelated keyword ai."
+    },
+    {
+      "id": "network-transport",
+      "query": "Investigate why client snapshots are not sent through the transport.",
+      "expected_subsystems": ["networking"],
+      "notes": "Sending snapshots to clients belongs to network transport. The query also exercises the plural snapshots."
+    },
+    {
+      "id": "network-interpolation",
+      "query": "Fix interpolation and snapshot synchronization for online multiplayer.",
+      "expected_subsystems": ["networking"],
+      "notes": "Interpolating synchronized state from network snapshots is a networking concern."
+    },
+    {
+      "id": "render-animation",
+      "query": "Why are sprite textures blurred in the animation?",
+      "expected_subsystems": ["rendering"],
+      "notes": "Sprite appearance and animation are part of rendering."
+    },
+    {
+      "id": "render-camera",
+      "query": "Update the camera draw order for sprite animation.",
+      "expected_subsystems": ["rendering"],
+      "notes": "The task concerns visual drawing order. Camera and draw are shared keywords, but sprite animation narrows the task to rendering."
+    },
+    {
+      "id": "render-plurals",
+      "query": "Sprites and textures flicker.",
+      "expected_subsystems": ["rendering"],
+      "notes": "Sprite and texture flicker is a visual rendering defect. Both nouns use their plural forms."
+    },
+    {
+      "id": "physics-collision",
+      "query": "Fix collision and raycast behavior when an obstacle blocks the path.",
+      "expected_subsystems": ["physics"],
+      "notes": "Collision and obstacle raycasts are maintained by the physics subsystem."
+    },
+    {
+      "id": "physics-plurals",
+      "query": "Why do raycasts miss obstacles?",
+      "expected_subsystems": ["physics"],
+      "notes": "Raycasts against obstacles are a physics operation. Both relevant indexed terms appear as plurals."
+    },
+    {
+      "id": "ai-chase",
+      "query": "Enemy AI should chase and then flee from the target.",
+      "expected_subsystems": ["ai"],
+      "notes": "Enemy chase and flee behavior belongs to the AI subsystem."
+    },
+    {
+      "id": "ai-wander",
+      "query": "Repair enemies that wander before aggro.",
+      "expected_subsystems": ["ai"],
+      "notes": "Wandering and aggro transitions belong to enemy AI, even without the literal term AI."
+    },
+    {
+      "id": "combat-projectile",
+      "query": "Fix projectile damage and weapon attack timing.",
+      "expected_subsystems": ["combat"],
+      "notes": "The requested change is damage and attack timing, rather than trajectory aiming or network replication."
+    },
+    {
+      "id": "combat-weapons",
+      "query": "Projectiles and weapons fire but deal no damage.",
+      "expected_subsystems": ["combat"],
+      "notes": "Projectile and weapon damage is a combat behavior. The query uses plural weapon and projectile forms."
+    },
+    {
+      "id": "input-controls",
+      "query": "Fix the keyboard and gamepad controls for WASD movement.",
+      "expected_subsystems": ["input"],
+      "notes": "Keyboard and gamepad controls belong to input handling."
+    },
+    {
+      "id": "input-plurals",
+      "query": "Support multiple controllers and keyboards.",
+      "expected_subsystems": ["input"],
+      "notes": "Supporting controllers and keyboards belongs to input handling. Both indexed device types appear in plural form."
+    },
+    {
+      "id": "ui-overlay",
+      "query": "Repair the UI tooltip and progress bar overlay.",
+      "expected_subsystems": ["ui"],
+      "notes": "Tooltips, progress bars and overlays are documented UI framework responsibilities."
+    },
+    {
+      "id": "audio-duplicate-music",
+      "query": "The music starts twice after loading a saved game.",
+      "expected_subsystems": ["audio"],
+      "notes": "The visible symptom is duplicate music playback. Saved and loading can favor services and asset loading instead of audio."
+    },
+    {
+      "id": "physics-empty-doorway",
+      "query": "Raycasts stop at empty doorways in the latest build.",
+      "expected_subsystems": ["physics"],
+      "notes": "The raycast hits an empty opening. Doorways contains door and latest contains test, so the query can also retrieve dungeon generation and developer tools."
+    },
+    {
+      "id": "state-survival-lobby",
+      "query": "Survival mode hangs when leaving the lobby.",
+      "expected_subsystems": ["game-states"],
+      "notes": "The primary task is diagnosing a game-mode transition. Lobby also belongs to other subsystems, and mode contains the equipment keyword mod."
+    },
+    {
+      "id": "devtools-black-screenshot",
+      "query": "Headless screenshot output is black at 1920x1080.",
+      "expected_subsystems": ["devtools"],
+      "notes": "The symptom is in the headless screenshot tool. Screenshot contains screen, which is indexed for aiming."
+    },
+    {
+      "id": "combat-double-shot",
+      "query": "A single trigger press sometimes makes the rifle fire two projectiles instead of one.",
+      "expected_subsystems": ["combat"],
+      "notes": "The primary task is diagnosing duplicate projectile firing from a single trigger press. Fire and projectile overlap with the aiming index."
+    },
+    {
+      "id": "gamepad-unplug",
+      "query": "The gamepad fails to reconnect after I unplug it.",
+      "expected_subsystems": [
+        "input"
+      ],
+      "notes": "The device fails to reconnect. Input is the primary label; fails also contains ai."
+    },
+    {
+      "id": "tooltip-dialog",
+      "query": "The tooltip remains on screen after closing the dialog.",
+      "expected_subsystems": [
+        "ui"
+      ],
+      "notes": "The tooltip should disappear with its dialog. Remains contains ai, and screen is an aiming keyword."
+    },
+    {
+      "id": "gamepad-build",
+      "query": "In the latest build, the gamepad stops responding after reconnecting.",
+      "expected_subsystems": [
+        "input"
+      ],
+      "notes": "The symptom concerns gamepad input. Latest contains test, and build contains ui."
+    },
+    {
+      "id": "snapshot-twice",
+      "query": "The client applies the same snapshot twice after reconnecting.",
+      "expected_subsystems": [
+        "networking"
+      ],
+      "notes": "Client snapshot handling belongs to multiplayer networking. Twice contains ice, a Core & Fusion keyword."
+    },
+    {
+      "id": "keyboard-gamepad",
+      "query": "The player loses keyboard control when a second gamepad connects.",
+      "expected_subsystems": [
+        "input"
+      ],
+      "notes": "The symptom concerns input devices. Keyboard contains key, and player contains play."
+    },
+    {
+      "id": "healthbar-color",
+      "query": "The health bar is the wrong color. The health value is correct.",
+      "expected_subsystems": [
+        "ui"
+      ],
+      "notes": "Only the display color is wrong. Health can rank combat or damage; heal is also a substring of health."
+    }
+  ]
+}
